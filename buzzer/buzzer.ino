@@ -17,24 +17,17 @@ void setup() {
   // start serial port at 9600 bps and wait for port to open:
   Serial.begin(9600);
   establishContact();
-  // while (!Serial) {
-  //   ;  // wait for serial port to connect. Needed for native USB port only
-  // }
-
   u8g2.begin();
-
-
   pinMode(buzzer, OUTPUT);  //initialize the buzzer pin as an output
-
 }
 
-void establishContact() { 
-int incomingByte = 0;
+void establishContact() {
+  int incomingByte = 0;
   Serial.println("Proszę czekać");  // send an initial string
   while (!Serial) {
     delay(100);
     Serial.println("Proszę czekać");  // send an initial string
-        // read the incoming byte:
+                                      // read the incoming byte:
     delay(300);
   }
   Serial.println("Witaj w arduino, hakerze!");  // send an initial string
@@ -59,12 +52,17 @@ void loop() {
   Serial.println("hello Anna, Ania!");
   delay(50);
 
-    u8g2.clearBuffer();                       // Clean the device buffer
-    u8g2.setFont(u8g2_font_logisoso16_tr);    // Select the font
-    u8g2.drawStr(30,35,"stem4dziewczynek");   // Ask the display to write a string at (X,Y) coordinates on the screen 
-    u8g2.sendBuffer();                        // Send 
-    delay(1000);
-    u8g2.clearBuffer(); 
-  
+
+  u8g2.clearBuffer();                       // Clean the device buffer
+  u8g2.setFont(u8g2_font_t0_11_tf);    // Select the font for the screen
+  char *name = "halina";                    // Let's be lazy and use a variable
+  u8g2.drawStr(5, 48, name);               // This should be a variable, but does not work
+  Serial.println(name);                     // Will show the message in the serial monitor (serial output)
+  u8g2.drawStr(0, 32, "stem4dziewczynek");  // Ask the display to write a string at (X,Y) coordinates on the screen
+  u8g2.drawStr(0, 16, "ArtesEdu");  // Ask the display to write a string at (X,Y) coordinates on the screen
+  u8g2.sendBuffer();                        // Send
+  delay(20);
+
   exit(0);
+
 }
