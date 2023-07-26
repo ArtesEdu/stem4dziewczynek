@@ -11,7 +11,7 @@ void setup() {
 void loop() {
     u8g2.clearBuffer();                    // Vaciamos el buffer del dispositivo
     u8g2.setFont(u8g2_font_logisoso16_tr);    // Seleccionamos la fuente
-    u8g2.drawStr(5,35,"ideasss");    // Escribimos en el buffer el texto con la posición (X,Y) en la pantalla
+    u8g2.drawStr(5,35,"Capybara");    // Escribimos en el buffer el texto con la posición (X,Y) en la pantalla
     u8g2.sendBuffer();                    // Enviamos el buffer a nuestra pantalla
     delay(1000);  
 }
