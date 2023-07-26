@@ -35,34 +35,40 @@ void establishContact() {
 }
 
 void loop() {
-  // u8g2.clearBuffer();
-  // delay(100);
-  // u8g2.setFont(u8g2_font_logisoso16_tr);
-  // delay(100);
-  // u8g2.drawStr(5,35,"ideasss");
-  // delay(100);
-  // u8g2.sendBuffer();
-  // delay(10000);
-  // digitalWrite(buzzer,HIGH);
-  // digitalWrite(buzzer,LOW);
-  // delay(100);
 
   Serial.println("stem4dziewczynek!");
   delay(100);
   Serial.println("hello Anna, Ania!");
   delay(50);
 
-
   u8g2.clearBuffer();                       // Clean the device buffer
-  u8g2.setFont(u8g2_font_t0_11_tf);    // Select the font for the screen
-  char *name = "halina";                    // Let's be lazy and use a variable
-  u8g2.drawStr(5, 48, name);               // This should be a variable, but does not work
+  u8g2.setFont(u8g2_font_t0_11_tf);         // Select the font for the screen
+  char *name = "Maja";                      // Let's be lazy and use a variable
+  char *message = "";                       // Custom message to show on the screen
   Serial.println(name);                     // Will show the message in the serial monitor (serial output)
+  u8g2.drawStr(0, 16, "ArtesEdu");          // Ask the display to write a string at (X,Y) coordinates on the screen
   u8g2.drawStr(0, 32, "stem4dziewczynek");  // Ask the display to write a string at (X,Y) coordinates on the screen
-  u8g2.drawStr(0, 16, "ArtesEdu");  // Ask the display to write a string at (X,Y) coordinates on the screen
+  u8g2.drawStr(5, 48, name);                // Ask the display to write a string at (X,Y) coordinates on the screen
+  u8g2.drawStr(5, 56, message);             // This should be a variable, but does not work
   u8g2.sendBuffer();                        // Send
   delay(20);
 
   exit(0);
-
 }
+
+// unsigned char i;
+// //output an frequency
+// for (i = 0; i < 80; i++) {
+//   digitalWrite(buzzer, HIGH);
+//   delay(1);  //wait for 1ms
+//   digitalWrite(buzzer, LOW);
+//   delay(1);  //wait for 1ms
+// }
+// //output another frequency
+// for (i = 0; i < 100; i++) {
+//   digitalWrite(buzzer, HIGH);
+//   delay(2);  //wait for 2ms
+//   digitalWrite(buzzer, LOW);
+//   delay(2);  //wait for 2ms
+// }
+// }
